@@ -1,122 +1,28 @@
 <head>
+  <base href="/">
   <h1> {{title}}</h1>
   <br>
 </head>
 <body>
   <nav class="navbar navbar-expand-sm bg-light">
     <ul class="navbar-nav">
-      <li class="nav-item" style="padding-left:0.2in">
-        <a class="btn btn-primary" (click)="changeSection(2)">Add a Parcel</a>
+      <li class="nav-item">
+        <a class="nav-link" routerLink = "/addparcel" routerLinkActive="active">Add a Parcel</a>
       </li>
-      <li class="nav-item" style="padding-left:0.2in">
-        <a class="btn btn-primary" (click)="changeSection(3)">Add a Sender</a>
+      <li class="nav-item">
+        <a class="nav-link" routerLink = "/addsender" routerLinkActive="active">Add a Sender</a>
       </li>
-      <li class="nav-item" style="padding-left:0.2in">
-        <a class="btn btn-primary" (click)="changeSection(4)">List All Senders</a>
+      <li class="nav-item">
+        <a class="nav-link" routerLink = "/deletesender" routerLinkActive="active">Delete a Sender</a>
       </li>
-      <li class="nav-item" style="padding-left:0.2in">
-        <a class="btn btn-primary" (click)="changeSection(5)">List All Parcels</a>
+      <li class="nav-item">
+        <a class="nav-link" routerLink = "/listsender" routerLinkActive="active">List All Senders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink = "/listparcel" routerLinkActive="active">List All Parcels</a>
       </li>
     </ul>
   </nav>
-
-
-  <div class = "section" *ngIf = "currentSection == 2">
-    <h1>Add A New Parcel</h1>
-    <br>
-    SenderId: <input name = "senderId" type = "text" [(ngModel)] = "senderId"> 
-    Address: <input name = "address" type = "text" [(ngModel)] = "address"> 
-    Weight: <input name = "weight" type = "number" [(ngModel)] = "weight"> 
-    Fragile: <input name = "fragile" type = "checkbox" [(ngModel)] = "fragile">
-    <br>
-    <br>
-    <button class= "btn btn-primary" type = "submit" (click) = "addNewParcel()"> Add Parcel</button>
-  </div>
-
-
-
-  <div class = "section" *ngIf = "currentSection == 3">
-    <h1>Add A New Sender</h1>
-    <br>
-    Name: <input name = "name" type = "text" [(ngModel)] = "name"> 
-    <br>
-    <br>
-    <button class= "btn btn-primary" type = "submit" (click) = "addNewSender()"> Add Sender</button>
-  </div>
-
-
-
-  <div class = "section" *ngIf = "currentSection == 4"> 
-  <h1>List All Senders</h1>
-  <br>
-  <table class = "table table-hover">
-    <thead>
-      <th>#</th>
-      <th>_id</th>
-      <th>Sender</th>
-    </thead>
-    <tbody>
-      <tr *ngFor = "let sender of senderArray; let i = index">
-        <td> {{i+1}} </td>
-        <td> {{senderArray[i]._id}} </td>
-        <td> {{senderArray[i].name}} </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-
-
-<div class = "section" *ngIf = "currentSection == 5"> 
-<h1>List All Parcels</h1>
-<br>
-Filter Parcels For Weight Over 100: <input name = "parcelWeightCheck" type = "checkbox" [(ngModel)] = "parcelWeightCheck">
-<br>
-<br>
-<div *ngIf = "parcelFragileCheck == false">
-  <table class = "table table-hover">
-    <thead>
-      <th>#</th>
-      <th>_id</th>
-      <th>Sender</th>
-      <th>Address</th>
-      <th>Weight</th>
-      <th>Fragile</th>
-    </thead>
-    <tbody>
-      <tr *ngFor = "let parcel of parcelArray; let i = index">
-          <td> {{i+1}} </td>
-          <td> {{parcelArray[i]._id}} </td>
-          <td> {{parcelArray[i].sender.name}} </td>
-          <td> {{parcelArray[i].address}} </td>
-          <td> {{parcelArray[i].weight}} </td>
-          <td> {{parcelArray[i].fragile}} </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div *ngIf = "parcelWeightCheck == true">
-  <table class = "table table-hover">
-    <thead>
-      <th>#</th>
-      <th>_id</th>
-      <th>Sender</th>
-      <th>Address</th>
-      <th>Weight</th>
-      <th>Fragile</th>
-    </thead>
-    <tbody>
-      <tr *ngFor = "let parcel of parcelArray; let i = index">
-        <td *ngIf = "parcelArray[i].fragile == true"> {{i+1}} </td>
-        <td *ngIf = "parcelArray[i].fragile == true"> {{parcelArray[i]._id}} </td>
-        <td *ngIf = "parcelArray[i].fragile == true"> {{parcelArray[i].sender.name}} </td>
-        <td *ngIf = "parcelArray[i].fragile == true"> {{parcelArray[i].address}} </td>
-        <td *ngIf = "parcelArray[i].fragile == true"> {{parcelArray[i].weight}} </td>
-        <td *ngIf = "parcelArray[i].fragile == true"> {{parcelArray[i].fragile}} </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-</div>
+  <router-outlet></router-outlet>
 </body>
+

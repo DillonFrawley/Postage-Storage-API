@@ -1,0 +1,20 @@
+<body>
+    <div> 
+        <h1>List All Senders</h1>
+        <br>
+        <table class = "table table-hover">
+          <thead>
+            <th>#</th>
+            <th>_id</th>
+            <th>Sender</th>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let sender of senderArray; let i = index">
+              <td> {{i+1}} </td>
+              <td> {{senderArray[i]._id}} </td>
+              <td> {{senderArray[i].name}} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+</body>

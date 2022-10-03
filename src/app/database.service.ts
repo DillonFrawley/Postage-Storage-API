@@ -22,14 +22,17 @@ export class DatabaseService {
     return this.http.post(urlBackend + "/sender", data, httpOptions)
   }
 
+
   listParcels() {
-    let url = "/parcel";
-    return this.http.get(urlBackend + url, httpOptions);
+    return this.http.get(urlBackend + "/parcel", httpOptions);
   }
 
   listSenders() {
-    let url = "/sender";
-    return this.http.get(urlBackend + url);
+    return this.http.get(urlBackend + "/sender", httpOptions);
+  }
+
+  deleteSender(id:string) {
+    return this.http.delete(urlBackend + "/sender/" + id, httpOptions);
   }
 
 
