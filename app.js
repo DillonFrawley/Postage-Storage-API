@@ -29,7 +29,7 @@ mongoose.connect(url, function (err) {
 app.get('/sender/:name', sender.getAllByName);
 app.get('/sender/', sender.getAllSenders);
 app.post('/sender', sender.createSender);
-app.delete('/sender', sender.deleteSender);
+app.delete('/sender/:id', sender.deleteSender);
 app.put('/sender', sender.updateSender);
 app.put('/sender/parcel', sender.addParcel);
 

@@ -29,7 +29,7 @@ module.exports = {
         });
     },
     deleteSender: function (req, res) {
-        let senderId = req.body.id;
+        let senderId = req.params.id;
         Sender.findByIdAndDelete(senderId, function (err, result) {
             if (err) return res.json(err);
             else
