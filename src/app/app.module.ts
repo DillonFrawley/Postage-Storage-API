@@ -14,6 +14,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { HomeComponent } from './home/home.component';
 
 
 const appRoutes: Routes = [
@@ -22,7 +23,7 @@ const appRoutes: Routes = [
   { path: "deletesender", component: DeleteSenderComponent },
   { path: "listparcel", component: ListParcelComponent },
   { path: "addparcel", component: AddParcelComponent },
-  { path: "", redirectTo: "/", pathMatch: "full" },
+  { path: "", redirectTo: "home", pathMatch: "full", component: HomeComponent },
   { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
 ];
 
@@ -34,8 +35,8 @@ const appRoutes: Routes = [
     DeleteSenderComponent,
     AddParcelComponent,
     ListParcelComponent,
-    PageNotFoundComponentComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [BrowserModule,
     FormsModule,

@@ -19,8 +19,8 @@ export class DeleteSenderComponent implements OnInit  {
     });
   }
 
-  DeleteSender(index:string) {
-    let id = this.senderArray[index]._id
+  DeleteSender(i:number) {
+    let id = this.senderArray[i]._id
     this.dbService.deleteSender(id).subscribe(result => {
       this.router.navigate(["/listsender"]);
     })
