@@ -7,26 +7,15 @@ import { Router } from "@angular/router";
   templateUrl: './delete-sender.component.html',
   styleUrls: ['./delete-sender.component.css']
 })
-export class DeleteSenderComponent implements OnInit  {
+export class DeleteSenderComponent{
 
   constructor(private dbService: DatabaseService, private router: Router) { }
 
-  senderArray: any = [];
+  senderId = "";
 
-  ListAllSenders() {
-    this.dbService.listSenders().subscribe(result => {
-      this.senderArray = result;
-    });
-  }
-
-  DeleteSender(i:number) {
-    let id = this.senderArray[i]._id
-    this.dbService.deleteSender(id).subscribe(result => {
+  DeleteSender() {
+    this.dbService.deleteSender(this.senderId).subscribe(result => {
       this.router.navigate(["/listsender"]);
     })
-  }
-
-  ngOnInit() {
-    this.ListAllSenders();
   }
 }

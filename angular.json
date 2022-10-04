@@ -62,7 +62,9 @@
                   "minify": true,
                   "inlineCritical": false
                 }
-              }
+              },
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
             },
             "development": {
               "buildOptimizer": false,
