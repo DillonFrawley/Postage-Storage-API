@@ -18,12 +18,13 @@ import { HomeComponent } from './home/home.component';
 
 
 const appRoutes: Routes = [
+  { path: "addparcel", component: AddParcelComponent },
   { path: "listsender", component: ListSenderComponent },
   { path: "addsender", component: AddSenderComponent },
   { path: "deletesender", component: DeleteSenderComponent },
   { path: "listparcel", component: ListParcelComponent },
-  { path: "addparcel", component: AddParcelComponent },
-  { path: "", redirectTo: "home", pathMatch: "full", component: HomeComponent },
+  { path: "home", component: HomeComponent},
+  { path: "", redirectTo: "/home", pathMatch: "full"},
   { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
 ];
 

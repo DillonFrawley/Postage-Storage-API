@@ -17,7 +17,7 @@ export class AddSenderComponent {
     let data = { name: this.name};
     this.dbService.addSender(data).subscribe(result => {
       console.log(result);
-      this.router.navigate(["/listsenders"]);
+      this.router.navigate(["/listsender"]);
     })
   }
 
