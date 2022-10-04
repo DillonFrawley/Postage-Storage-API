@@ -30,6 +30,14 @@ module.exports = {
     },
     deleteSender: function (req, res) {
         let senderId = req.params.id;
+        
+        Sender.findById(senderId, function( err, result) {
+            for ( let i = 0; i< result.parcels.length; i++) {
+                Parcel.findByIdAndDelete(result.parcels[i], function(err, result) {
+                    console.log("Parcel removed successfully");
+                })
+            };
+        });
         Sender.findByIdAndDelete(senderId, function (err, result) {
             if (err) return res.json(err);
             else
