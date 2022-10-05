@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
+import { W10ParcelSubStringPipe } from './w10-parcel-sub-string.pipe';
 
 
 const appRoutes: Routes = [
@@ -24,8 +25,9 @@ const appRoutes: Routes = [
   { path: "deletesender", component: DeleteSenderComponent },
   { path: "listparcel", component: ListParcelComponent },
   { path: "home", component: HomeComponent},
+  { path: "pagenotfound", component: PageNotFoundComponent},
   { path: "", redirectTo: "/home", pathMatch: "full"},
-  { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
+  { path: '**', redirectTo: "/pagenotfound" },  // Wildcard route for a 404 page
 ];
 
 @NgModule({
@@ -37,7 +39,8 @@ const appRoutes: Routes = [
     AddParcelComponent,
     ListParcelComponent,
     PageNotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    W10ParcelSubStringPipe
   ],
   imports: [BrowserModule,
     FormsModule,
