@@ -9,13 +9,17 @@ const parcel = require("./routers/parcel");
 
 let app = express();
 const PORT_NUMBER = 8080;
+
+
 app.use(cors());
 
 app.listen(PORT_NUMBER, () => {
   console.log(`Listening on port ${PORT_NUMBER}`);
 });
 
-app.use(express.json())
+app.use(express.json());
+
+app.use("/", express.static(path.join(__dirname, "../w9ang/dist/w9ang")));
 
 let url = "mongodb://localhost:27017/labweek7app";
 
